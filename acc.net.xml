@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Sat May  8 23:10:00 2021 by Eclipse SUMO netedit Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <output>
+        <output-file value="/Users/liantao/Desktop/acc.net.xml"/>
+    </output>
+
+    <processing>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+    </junctions>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<net version="1.6" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="3.98,51.52,107.95,51.52" origBoundary="10000000000.00,10000000000.00,-10000000000.00,-10000000000.00" projParameter="!"/>
+
+    <edge id="gneE0" from="gneJ0" to="gneJ1" priority="-1" length="2000.00">
+        <lane id="gneE0_0" index="0" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship" speed="30.00" length="2000.00" shape="3.98,46.72 107.95,46.72"/>
+        <lane id="gneE0_1" index="1" disallow="pedestrian tram rail_urban rail rail_electric rail_fast ship" speed="30.00" length="2000.00" shape="3.98,49.92 107.95,49.92"/>
+    </edge>
+
+    <junction id="gneJ0" type="dead_end" x="3.98" y="51.52" incLanes="" intLanes="" shape="3.98,51.52 3.98,45.12"/>
+    <junction id="gneJ1" type="dead_end" x="107.95" y="51.52" incLanes="gneE0_0 gneE0_1" intLanes="" shape="107.95,45.12 107.95,51.52"/>
+
+</net>
