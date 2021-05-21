@@ -21,6 +21,7 @@ else:
 
 import traci
 
+
 # print(traci.vehicle.getPosition())
 class ACC_control():
     def __init__(self, ego_vehicle, front_vehicle):
@@ -34,11 +35,11 @@ class ACC_control():
         self.length = traci.vehicle.getLength(self.ego)
 
     def get_relative_distance(self):
-        (x0,y0)=traci.vehicle.getPosition(self.front)
-        (x1,y1)=traci.vehicle.getPosition(self.ego)
+        (x0, y0) = traci.vehicle.getPosition(self.front)
+        (x1, y1) = traci.vehicle.getPosition(self.ego)
         g = x0 - x1 - self.length
         # add some noise
-        g=g*random.uniform(0.9,1.1)
+        g = g * random.uniform(0.9, 1.1)
         return g
 
     def next_speed(self):
@@ -71,18 +72,20 @@ while i < 100:
         ego_car = vehicles[1]
         ACC = ACC_control(ego_car, front_car)
         distance = ACC.get_relative_distance()
-        current_front_vehicle=traci.vehicle.getSpeed(front_car)
-        current_ego_vehicle=traci.vehicle.getSpeed(ego_car)
-        print('current speed:', traci.vehicle.getSpeed(front_car),traci.vehicle.getSpeed(ego_car))
+        current_front_vehicle = traci.vehicle.getSpeed(front_car)
+        current_ego_vehicle = traci.vehicle.getSpeed(ego_car)
+        print('current speed:', traci.vehicle.getSpeed(front_car), traci.vehicle.getSpeed(ego_car))
         traci.vehicle.setSpeedMode(ego_car, 0)
         traci.vehicle.setLaneChangeMode(ego_car, 0)
         v_next = ACC.next_speed()
         traci.vehicle.setSpeed(ego_car, v_next)
-        next_front_vehicle=random.randint(10,30)
+        next_front_vehicle = random.randint(10, 30)
         traci.vehicle.setSpeed(front_car, next_front_vehicle)
         print('next speed,distance', (ACC.front_speed, v_next, distance))
         # file.write(str(current_ego_vehicle)+','+str(current_front_vehicle)+','+str(v_next)+','+str(distance)+'\n')
     else:
-         traci.vehicle.setSpeed(front_car, 20)
+        traci.vehicle.setSpeed(front_car, 20)
     i = i + 1
 traci.close()
+
+# This is for test 2
